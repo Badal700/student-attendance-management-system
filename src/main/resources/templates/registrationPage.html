@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<link rel="stylesheet" href="/index.css">
+<title>Sign up</title>
+<link href="img/1630672919215.jpg" rel="icon">
+</head>
+<style> 
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	/* background: blue; */
+	background: url('img/pexels.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	padding: 30px;
+}
+
+.container {
+	position: relative;
+	max-width: 723px;
+	width: 100%;
+	background: #fff;
+	padding: 40px 30px;
+	box-shadow: 0 0 30px rgb(214 215 216/ 60%);
+	perspective: 2700px;
+}
+
+.container .forms {
+	height: 100%;
+	width: 100%;
+	background: #fff;
+}
+
+.container .form-content {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.dn {
+	text-align: center;
+}
+
+.dn img {
+	width: 50%;
+	margin-bottom: 25px;
+	box-shadow: 10px 5px 5px rgb(20, 145, 228);
+}
+
+.form-content .signup-form {
+	width: 74%;
+	margin-left: 74px;
+}
+
+.forms .form-content .title {
+	position: relative;
+	font-size: 24px;
+	font-weight: 500;
+	color: #333;
+}
+
+.forms .form-content .title:before {
+	content: '';
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	height: 3px;
+	width: 25px;
+	background: blue;
+}
+
+.forms .signup-form .title:before {
+	width: 20px;
+}
+
+.forms .form-content .input-boxes {
+	margin-top: 30px;
+}
+
+.forms .form-content .input-box {
+	display: flex;
+	align-items: center;
+	height: 50px;
+	width: 100%;
+	margin: 22px 0;
+	position: relative;
+}
+
+.form-content .input-box input {
+	height: 100%;
+	width: 100%;
+	border-radius: 5px;
+	border: 1px solid #aaa;
+	padding: 0 30px;
+	margin: 8px 0;
+	font-size: 14px;
+	font-weight: 500;
+	margin-left: 3px;
+	transition: all 0.3s ease;
+}
+
+.form-content .input-box i {
+	position: absolute;
+	color: blue;
+	font-size: 17px;
+	margin-left: 10px;
+}
+
+.forms .form-content .text {
+	font-size: 14px;
+	font-weight: 500;
+	color: #333;
+}
+
+.forms .form-content .text a {
+	text-decoration: none;
+}
+
+.forms .form-content .text a:hover {
+	text-decoration: underline;
+}
+
+.forms .form-content .button {
+	color: #fff;
+	margin-top: 40px;
+}
+
+.forms .form-content .button input {
+	color: #fff;
+	background: blue;
+	border-radius: 6px;
+	padding: 0;
+	cursor: pointer;
+	transition: all 0.4s ease;
+}
+
+.forms .form-content .button input:hover {
+	background: red;
+}
+
+.forms .form-content label {
+	color: blue;
+	cursor: pointer;
+}
+
+.forms .form-content label:hover {
+	text-decoration: underline;
+}
+
+.forms .form-content .sign-up-text {
+	text-align: center;
+	margin-top: 25px;
+}
+
+@media ( max-width : 730px) {
+	.form-content .signup-form {
+		width: 100%;
+	}
+	.form-content .signup-form {
+		display: none;
+	}
+}
+</style>
+<body>
+
+	<div class="container">
+		<div class="forms">
+			<div class="form-content">
+				<div class="signup-form">
+					<div class="dn">
+						<img src="Centroxy logo.png" alt="Centroxy logo.png">
+					</div>
+					<div class="title">Registration</div>
+					<form th:action="@{/save}" th:object="${student}" method="post">
+						<div class="input-boxes">
+							<div class="input-box">
+								<i class="fas fa-user"></i> <input type="text" name="firstName"
+									id="firstName" placeholder="Enter First name" required>
+							</div>
+							<div class="input-box">
+								<i class="fas fa-user"></i> <input type="text" name="lastName"
+									id="lastName" placeholder="Enter Last name" required>
+							</div>
+							<div class="input-box">
+								<i class="fas fa-envelope"></i> <input type="email" name="email"
+									id="email" placeholder="Your Email" required>
+							</div>
+							<div class="input-box">
+								<i class="fas fa-phone-alt"></i> <input type="number"
+									name="mobileNo" id="mobileNo"
+									placeholder="  Enter Your Phone Number">
+							</div>
+							<div class="input-box">
+								<i class="fas fa-id-card-alt"></i> <input type="text"
+									name="aadharNo" id="aadharNo"
+									placeholder="  Enter Aadhar Number" required>
+							</div>
+							<div class="input-box">
+								<i class="fas fa-user"></i> <input type="text" name="userName"
+									id="userName" placeholder="Enter Username" required>
+							</div>
+							<div class="input-box">
+								<i class="fas fa-lock"></i> <input type="password"
+									name="password" id="password" placeholder="Enter your password"
+									required>
+							</div>
+
+							<div class="button input-box">
+								<input type="submit" value="Resister">
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

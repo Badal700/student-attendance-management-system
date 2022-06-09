@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+<link rel="stylesheet" href="style.css">
+
+<title>Home Page</title>
+
+<script>
+	AOS.init({
+		duration : 1200,
+	})
+</script>
+</head>
+<style>
+
+/* ---------------------intro section----------------- */
+#intr
+
+* {
+	margin: 100px;
+	padding: 50px;
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
+}
+
+body {
+	background: url('img/brown.jpeg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	padding: 30px;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#intro::before {
+	content: "";
+	background: rgba(13, 20, 26, 0.7);
+	/* position: absolute; */
+	opacity: 5;
+	bottom: 0;
+	top: 0;
+	left: 0;
+	right: 0;
+}
+
+#intro h1 {
+	color: #fff;
+	margin: 300px 0 10px 340px;
+	font-weight: 700;
+	font-size: 43px;
+	line-height: 30px;
+}
+
+#intro h2 {
+	color: #eee;
+	margin-bottom: 30px;
+	font-size: 24px;
+	margin-left: 99px;
+}
+
+section {
+	padding: 60px 0;
+	overflow: hidden;
+}
+
+.Team-row {
+	display: flex;
+}
+
+.Team-box {
+	/* background: #fff; */
+	background: #cdddff;
+	width: 32%;
+	text-align: -webkit-center;
+	padding: 38px 140px;
+	height: 379px;
+	margin-right: 25px;
+	margin-left: 147px;
+	box-shadow: 0px 0px 12px 0px rgb(0 0 0/ 10%);
+}
+
+.Team-box .titel {
+	position: relative;
+	font-size: 27px;
+	font-weight: 600;
+	color: blue;
+	top: 116px;
+	left: -11px;
+}
+
+.input-field input {
+	height: 100%;
+	width: 100%;
+	padding: 0 50px;
+	outline: none;
+	font-size: 16px;
+	border-radius: 5px;
+	border: 1px solid #aaa;
+	margin: 8px 0;
+	font-weight: 500;
+	margin-left: 3px;
+	transition: all 0.3s ease;
+}
+
+.table {
+	width: 200px;
+	margin-top: 137px;
+}
+
+.input-field {
+	position: relative;
+	height: 50px;
+	width: 87%;
+	margin-top: 50px;
+}
+
+.input-field i {
+	position: absolute;
+	top: 66%;
+	transform: translateY(-50%);
+	color: blue;
+	font-size: 23px;
+	margin-left: 14px;
+	transition: all 0.2s ease;
+}
+
+.button {
+	margin-top: 10px;
+}
+
+.button input {
+	border: none;
+	width: 65%;
+	color: #fff;
+	font-size: 17px;
+	font-weight: 500;
+	letter-spacing: 1px;
+	border-radius: 6px;
+	background-color: blue;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	margin-left: 71px;
+}
+
+h1 {
+	position: relative;
+	font-size: 27px;
+	font-weight: 600;
+	color: blue;
+	margin-bottom: 28px;
+	top: -5px;
+}
+
+/* The container */
+.container {
+	display: block;
+	position: relative;
+	padding-left: 35px;
+	margin-bottom: 12px;
+	cursor: pointer;
+	font-size: 22px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+	height: 0;
+	width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+	position: absolute;
+	top: 0;
+	left: 35px;
+	height: 25px;
+	width: 25px;
+	background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~.checkmark {
+	background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~.checkmark {
+	background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+	content: "";
+	position: absolute;
+	display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~.checkmark:after {
+	display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+	left: 9px;
+	top: 5px;
+	width: 5px;
+	height: 10px;
+	border: solid white;
+	border-width: 0 3px 3px 0;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+footer {
+	background: black;
+	color: white;
+}
+
+.footer-copyright {
+	text-align: center;
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+</style>
+
+<body>
+
+	<div class="container-1">
+
+		<div class="Team-row">
+
+			<div class="Team-box">
+				<span class="titel">Student Details</span>
+				<form th:action="@{/#}" th:object="${registration}" method="POST">
+
+					<!--    <div class="input-field">
+                            <i class="fas fa-envelope"></i>
+                            <input type="text" th:text="${registration.studentId}"> placeholder=" Student Id" required>
+                        </div>
+                        <div class="input-field">
+                            <i class="fas fa-envelope"></i>
+                            <input type="text"<h4 th:text="${registration.firstName}"></h4> placeholder=" Student Name" required>
+                        </div> -->
+
+					<table class='table table-striped'>
+						<tr>
+							<td><h4>Student ID :</h4></td>
+							<td><h4 th:text="${student.studentId}"></h4></td>
+						</tr>
+						<tr>
+							<td><h4>First Name:</h4></td>
+							<td><h4 th:text="${student.firstName}"></h4></td>
+						</tr>
+						<tr>
+							<td><h4>Last Name:</h4></td>
+							<td><h4 th:text="${student.lastName}"></h4></td>
+						</tr>
+					</table>
+				</form>
+			</div>
+
+			<div class="Team-box">
+				<form th:action="@{/courses/} +${student.studentId}"
+					th:object="${studentCourse}" method="POST">
+					<h1>Course Details</h1>
+					<h3>
+						<input type="checkbox" name="english" id="english"
+							th:text="English" th:value="English" />
+					</h3>
+					<h3>
+						<input type="checkbox" name="mathematics" id="mathematics"
+							th:text="Mathmatics" th:value="Mathmatics" />
+					</h3>
+					<h3>
+						<input type="checkbox" name="physics" id="physics"
+							th:text="Physics" th:value="Physics" />
+					</h3>
+					<h3>
+						<input type="checkbox" name="chemistry" id="chemistry"
+							th:text="Chemistry" th:value="Chemistry" />
+					</h3>
+					<h3>
+						<input type="checkbox" name="biology" id="biology"
+							th:text="Biology" th:value="Biology" />
+					</h3>
+					<h3>
+						<input type="checkbox" name="it" id="it" th:text="IT"
+							th:value="IT" />
+					</h3>
+					<div class="input-field button">
+						<input type="submit" value="Submit">
+					</div>
+				</form>
+			</div>
+
+
+
+		</div>
+	</div>
+
+
+</body>
+</html>

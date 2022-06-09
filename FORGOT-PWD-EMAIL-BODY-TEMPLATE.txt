@@ -1,0 +1,12 @@
+Hi {FIRSTNAME},
+<br/>
+
+Please use below password to login into your account.<br/>
+<br/>
+
+Password : {PWD}<br/>
+<br/>
+<br/>
+
+Thanks & Regards,<br/>
+Centroxy Solution Pvt. Ltd<br/>
